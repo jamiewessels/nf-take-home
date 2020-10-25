@@ -1,10 +1,14 @@
+<p align="center">
+    <img src="images/water.png" width='900' height = '200'/>
+</p>
+
 # NF-Take-Home Part 1
 ## Visualizing Progress
 
 ### Task Description: 
 The purpose of this analysis was to explore different ways to visualize patient progress, using the GAD7 assessment data.
 
-#### Data Pipeline:
+## Data Pipeline:
 The steps I took to clean and transform the data can be found in the data_pipeline.py file. There were no null values, however, I did find duplicates where patients had multiple scores listed for the same day.  For the purposes of this analysis, I assumed these were "retests" and averaged patient's scores that occurred within a single day.
 
 Other transformations included in the pipeline: 
@@ -13,7 +17,7 @@ Other transformations included in the pipeline:
 * created column to look at score differences from previous assessment
 * simulated ages for patients (using normal distribution centered at 30 y.o. and a sigma of 5 yrs)
 
-### Patient look-up
+## Patient look-up
 The Patient.py file allows us to input a patient id for a quick visualization of their progress. The two figures below are examples of what this file outputs for Patient 9291 and 9027, respectively. 
 
 <p align="center">
@@ -27,7 +31,7 @@ The Patient.py file allows us to input a patient id for a quick visualization of
 ### Thoughts on Improvement Metrics
 It would be interesting to look patients who specifically discontinue their sessions because they feel they no longer require therapy. Because mental health is fluid, this seems like a difficult task.  However, I think patterns in these specific patients' scores might be an interesting way to determine the best metric for measuring improvement. For example, if most patients who discontinue therapy have 3 consecutive scores less than 5, maybe it's worth tracking that for other patients.
 
-### Closer look: Changes in Score from Previous Assessment
+## Closer look: Changes in Score from Previous Assessment
 The figure below shows the distributions of the measured changes in scores from the previous assessment. For example, if a patient scored a 6 on their first assessment and a 10 on their second assessment, the change in score would be +4. The area between the vertical dashed lines captures 90% of the data across all patients and all visits.  These "warning boundaries" are located at -6 and +5.  A delta of +5 means that the patient's score went up by 5 points since the last assessment, meaning they are more at risk for GAD. Data outside of these boundaries can be considered more rare and might warrant further evaluation, even if the score falls below 10. 
 
 * Note: even though a drop in score of 6 points would be considered a win (meaning patient appears to be less at risk for GAD based on the assessment), the data shows these "swings" to be rare (<5% of the time).  Therefore, identifying these larger changes might still be important.
@@ -51,17 +55,17 @@ For example, I noticed the two points on the upper right side of the graph (visi
     <img src="images/1867.png" width='700'/>
 </p>
 
-### Moving Forward: 
-#### Supplementing the Data
+## Moving Forward: 
+### Supplementing the Data
 * If there are any open-ended text sections of the GAD7 assessment, it would be very interesting to perform a sentiment analysis using NLP to supplement the scores. I think there is a lot of power in combining what patients say with how they rate their feelings.  
 * I'd love to have more information about each patient! What is their age? Have they had any major life events recently?  How did the doctor rate their overall state during the visit?  
 * I know this assessment screens for GAD, but is there a final determination by the doctor?  If so, I'd love to look at those labels.  Additionally, it would be very interesting to see the patients' scores for the individual questions within the GAD7. 
 
-#### If I had additional time: 
+### If I had additional time: 
 * Seasonal effects: I'd like to look at the effect that time of year has on patients' overall scores.  Although every patient has their individual needs, I think it's important to look at this, as it can help organizations plan for increased demand by leveraging staff and other support tools.
 * Patient-specific traits: I created a simulated column for age because having more information about the patients could shed light on their risk.  I did not have time to explore whether age had an effect on score (although I don't expect to see a signal because I randomly assigned ages using a normal distribution centered at 30).
 
-### Additional EDA
+## Additional EDA
 
 Here are some other charts that helped me visualize the dataset.  You can find additional visualizations in the jupyter notebook (NF_visualizations.ipynb). 
 
@@ -94,7 +98,7 @@ Lastly, when looking for seasonal effects, it's important to keep in mind that t
 
 # PART 2: SQL Queries
 
-#### Question 1
+## Question 1
 
 ```
 WITH users_grouped AS 
@@ -128,7 +132,7 @@ FROM combined c
 GROUP BY c.year, c.month;
 ```
 
-#### Question 2
+## Question 2
 
 ```
 
@@ -147,7 +151,7 @@ GROUP BY activity_counts
 ORDER BY activity_counts;
 ```
 
-#### Question 3
+## Question 3
 
 ```
 SELECT 
