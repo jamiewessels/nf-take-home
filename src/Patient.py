@@ -71,8 +71,8 @@ class Patient():
         pass
 
 if __name__ == '__main__':
-    patient = 9291
-    patient = Patient(9291)
+    patient = 1867
+    patient = Patient(1867)
     patient.plot_progress()
     patient.print_patient_stats()
     
