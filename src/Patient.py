@@ -19,9 +19,16 @@ class Patient():
             self.stats = self.get_patient_stats()
 
     def check_valid_id(self):
+        """Checks if patient_id has any information
+
+        Returns:
+            bool: True means that patient_id has taken an assessment
+        """
         return self.patient_id in self.all_data.patient_id.values
 
     def plot_progress(self):
+        """This method plots the assessment scores over time for the particular patient.
+        """
         if self.valid:
             c_palette = sns.color_palette("ch:s=.25,rot=-.25")
 
@@ -49,6 +56,11 @@ class Patient():
             print(f'{self.patient_id} is an invalid patient id')
     
     def get_patient_stats(self):
+        """This method creates a dictionary of different patient statistics.
+
+        Returns:
+            dict
+        """
         self.stats = dict()
         self.stats['initial_score'] = self.history['score'][self.history['num_visit']==1].item()
         self.stats['final_score'] = self.history.sort_values('date', ascending = False).head(1)['score'].item()
@@ -58,19 +70,31 @@ class Patient():
         return self.stats
 
     def print_patient_stats(self):
+        """Prints out patient stats when called.
+        """
         for k in self.stats:
             print(f'{str(k)}: {round(self.stats[k], 1)}')
 
     def get_history(self):
+        """Retrieves data specific to patient. Returns a DataFrame sorted by date.
+
+        Returns:
+            pandas DataFrame
+        """
         return self.all_data[self.all_data['patient_id']==self.patient_id].sort_values('date')
 
     def determine_risk(self):
+        """#TODO: would like a metric for determining risk
+        """
         pass
 
     def determine_stability(self):
+        """#TODO: would like a metric for determining stability
+        """
         pass
 
 if __name__ == '__main__':
+    #This is a patient with interesting results. Feel free to change id! 
     patient = 1867
     patient = Patient(1867)
     patient.plot_progress()
