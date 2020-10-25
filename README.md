@@ -2,11 +2,12 @@
     <img src="images/water.png" width='900' height = '200'/>
 </p>
 
-# NF-Take-Home Part 1
-## Visualizing Progress
+## Jamie Wessels | NF-Take-Home 
+# Part 1: GAD7 Analysis
 
-### Task Description: 
-The purpose of this analysis was to explore different ways to visualize patient progress, using the GAD7 assessment data.
+
+## Purpose: 
+The purpose of this analysis is to explore different ways to visualize patient progress, using the GAD7 assessment data.
 
 ## Data Pipeline:
 The steps I took to clean and transform the data can be found in the data_pipeline.py file. There were no null values, however, I did find duplicates where patients had multiple scores listed for the same day.  For the purposes of this analysis, I assumed these were "retests" and averaged patient's scores that occurred within a single day.
@@ -29,7 +30,7 @@ The Patient.py file allows us to input a patient id for a quick visualization of
 </p>
 
 ### Thoughts on Improvement Metrics
-It would be interesting to look patients who specifically discontinue their sessions because they feel they no longer require therapy. Because mental health is fluid, this seems like a difficult task.  However, I think patterns in these specific patients' scores might be an interesting way to determine the best metric for measuring improvement. For example, if most patients who discontinue therapy have 3 consecutive scores less than 5, maybe it's worth tracking that for other patients.
+It would be interesting to look at patients who specifically discontinue their sessions because they feel they no longer require therapy. Because mental health is fluid, this seems like a difficult task.  However, I think patterns in these specific patients' scores might be an interesting way to determine the best metric for measuring improvement. For example, if most patients who discontinue therapy have 3 consecutive scores less than 5, maybe it's worth tracking that for other patients.
 
 ## Closer look: Changes in Score from Previous Assessment
 The figure below shows the distributions of the measured changes in scores from the previous assessment. For example, if a patient scored a 6 on their first assessment and a 10 on their second assessment, the change in score would be +4. The area between the vertical dashed lines captures 90% of the data across all patients and all visits.  These "warning boundaries" are located at -6 and +5.  A delta of +5 means that the patient's score went up by 5 points since the last assessment, meaning they are more at risk for GAD. Data outside of these boundaries can be considered more rare and might warrant further evaluation, even if the score falls below 10. 
@@ -37,14 +38,14 @@ The figure below shows the distributions of the measured changes in scores from 
 * Note: even though a drop in score of 6 points would be considered a win (meaning patient appears to be less at risk for GAD based on the assessment), the data shows these "swings" to be rare (<5% of the time).  Therefore, identifying these larger changes might still be important.
 
 <p align="center">
-    <img src="images/delta_scores_hist.png" width='700'/>
+    <img src="images/delta_scores_hist.png" width='500'/>
 </p>
 
 The graph below, although busy, shows some interesting trends. The change in scores are plotted against the number of visits and are colored by score.  Scores that required futher evaluation (score >= 10) are colored in a darker shade of blue than scores that were below the 10 point threshold.  
 
 
 <p align="center">
-    <img src="images/change_score_by_visit.png" width='700'/>
+    <img src="images/change_score_by_visit.png" width='500'/>
 </p>
 
 I thought it was really interesting that scores tended to level off as the number of visit increased, meaning the changes in scores approach zero. This could simply be due to the fact that there were **significantly** more patients with low visit counts, adding to the variability (note: I included a distribution of these counts in the exploration section). Before making any conclusions, it would be important to address that confounding factor.  However, confounding factors aside, this chart did help me pinpoint several patients with concerning data.
@@ -164,3 +165,7 @@ GROUP BY pr.organization_id, pr.organization_name
 ORDER BY org_avg DESC  
 LIMIT 5;
 ```
+
+
+### Cover Photo Source
+<span>Photo by <a href="https://unsplash.com/@joke03?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jonas Kernwein</a> on <a href="https://unsplash.com/s/photos/water?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
