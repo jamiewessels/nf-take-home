@@ -78,7 +78,7 @@ note: Because 99% of the patients were captured in 10 visits, I limited some of 
 
 
 <p align="center">
-    <img src="images/score_by_visit_number_violin.png" width='500'/>
+    <img src="images/score_by_visit_number_violin.png" width='700'/>
 </p>
 
 I noticed that there might be a shift in the score from visits 4 and 5 to visit 6.  I looked at a subset of patients who had at least 6 visits and compared scores from visit 1, 2, 4, and 6. I looked at the empirical distributions of the observed data.  I saw little difference in the shape of the CDF's between visits 2, 4, and 6.  Visit 1 appeared to have lower scores.  
