@@ -73,24 +73,24 @@ Here are some other charts that helped me visualize the dataset.  You can find a
 note: Because 99% of the patients were captured in 10 visits, I limited some of my visualizations to 10 visits and below, as it was easier to look for trends. 
 
 <p align="center">
-    <img src="images/total_visits_hist.png" width='700'/>
+    <img src="images/total_visits_hist.png" width='500'/>
 </p>
 
 
 <p align="center">
-    <img src="images/score_by_visit_number_violin.png" width='700'/>
+    <img src="images/score_by_visit_number_violin.png" width='500'/>
 </p>
 
 I noticed that there might be a shift in the score from visits 4 and 5 to visit 6.  I looked at a subset of patients who had at least 6 visits and compared scores from visit 1, 2, 4, and 6. I looked at the empirical distributions of the observed data.  I saw little difference in the shape of the CDF's between visits 2, 4, and 6.  Visit 1 appeared to have lower scores.  
 
 <p align="center">
-    <img src="images/empirical_distribution_scores_visits.png" width='700'/>
+    <img src="images/empirical_distribution_scores_visits.png" width='500'/>
 </p>
 
 Lastly, when looking for seasonal effects, it's important to keep in mind that the number of patients has been increasing rapidly.  It would be very difficult to equate June 2019 with June 2020 due to the sheer difference in number of patients, in addition to the pandemic, which likely has had an effect on many patients. 
 
 <p align="center">
-    <img src="images/num_assessments_over_time.png" width='700'/>
+    <img src="images/num_assessments_over_time.png" width='500'/>
 </p>
 
 
