@@ -41,7 +41,7 @@ The figure below shows the distributions of the measured changes in scores from 
     <img src="images/delta_scores_hist.png" width='500'/>
 </p>
 
-The graph below, although busy, shows some interesting trends. The change in scores are plotted against the number of visits and are colored by score.  Scores that required futher evaluation (score >= 10) are colored in a darker shade of blue than scores that were below the 10 point threshold.  
+The graph below, although busy, shows some interesting trends. The change in scores are plotted against the number of visits and are colored by score.  Scores that required further evaluation (score >= 10) are colored in a darker shade of blue than scores that were below the 10 point threshold.  
 
 
 <p align="center">
@@ -59,7 +59,7 @@ For example, I noticed the two points on the upper right side of the graph (visi
 ## Moving Forward: 
 ### Supplementing the Data
 * If there are any open-ended text sections of the GAD7 assessment, it would be very interesting to perform a sentiment analysis using NLP to supplement the scores. I think there is a lot of power in combining what patients say with how they rate their feelings.  
-* I'd love to have more information about each patient! What is their age? Have they had any major life events recently?  How did the doctor rate their overall state during the visit?  
+* I'd love to have more information about each patient! To name some examples: What is their age? Have they had any major life events recently?  How did the doctor rate their overall state during the visit?  
 * I know this assessment screens for GAD, but is there a final determination by the doctor?  If so, I'd love to look at those labels.  Additionally, it would be very interesting to see the patients' scores for the individual questions within the GAD7. 
 
 ### If I had additional time: 
